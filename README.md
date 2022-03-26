@@ -1,5 +1,7 @@
 # MTL782_Assignment
 
+[Nitin Gautam, M.Sc. Economics IIT Delhi](https://econ.iitd.ac.in/students)
+
 This project is a part of Data Mining course MTL782 : Maths Dept. at [IIT Delhi](https://web.iitd.ac.in/~bspanda/datamining2018homepage.html) under course instructor [Prof. Bhawani Shanker Panda](https://web.iitd.ac.in/~bspanda/)
 
 Assignment 
