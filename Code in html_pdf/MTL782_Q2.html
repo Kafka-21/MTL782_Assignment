@@ -14548,8 +14548,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transactions</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># creating transaction array </span>
+<span class="n">transactions</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c1"># reading data from retail.dat file line-wise and storing each line as transcation in transcation array</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/quasar/Downloads/Courses/Data Mining/retail.dat&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
   <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
     <span class="n">transaction</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
@@ -14568,7 +14570,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transactions</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># choosing subset of transactions array to reduce compute time </span>
+<span class="n">transactions</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14609,23 +14612,16 @@ a.anchor-link {
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>change all the variable names</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_candidate_1</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-          <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">          create the 1-item candidate, </span>
-<span class="sd">          its basically creating a frozenset for each unique item and storing them in a list </span>
-<span class="sd">          &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create the 1-item candidate, </span>
+<span class="c1"># Function creates a frozenset for each unique item and stores them in a list </span>
+   
+<span class="k">def</span> <span class="nf">create_candidate_1</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
           <span class="n">c1</span> <span class="o">=</span> <span class="p">[]</span>
           <span class="k">for</span> <span class="n">transaction</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transaction</span><span class="p">:</span>
@@ -14646,15 +14642,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">apriori</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">min_support</span><span class="p">):</span>
-          <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">          pass in the transaction data and the minimum support threshold to obtain the frequent itemset. </span>
-<span class="sd">          Also store the support for each itemset, they will be used in the rule generation step</span>
-<span class="sd">          &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transaction data is input to the function and the minimum support threshold to obtain the frequent itemset. </span>
+<span class="c1"># Functions store the support for each itemset, which will be used in the rule generation step</span>
+          
+<span class="c1"># the candidate sets for the 1-item is different</span>
+<span class="c1"># create them independently from others</span>
 
-          <span class="c1"># the candidate sets for the 1-item is different</span>
-          <span class="c1"># create them independently from others</span>
-
+<span class="k">def</span> <span class="nf">apriori</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">min_support</span><span class="p">):</span>          
           <span class="n">c1</span> <span class="o">=</span> <span class="n">create_candidate_1</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
           <span class="n">freq_item</span><span class="p">,</span> <span class="n">item_support_dict</span> <span class="o">=</span> <span class="n">create_freq_item</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">min_support</span><span class="p">)</span>
           <span class="n">freq_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">freq_item</span><span class="p">]</span>
@@ -14682,11 +14676,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_freq_item</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ck</span><span class="p">,</span> <span class="n">min_support</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">):</span>
-          <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">          filters the candidate with the specified minimum support </span>
-<span class="sd">          &quot;&quot;&quot;</span>
-          <span class="c1"># loop through the transcation and compute the count for each candidate (item)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filters the candidate with the specified minimum support </span>
+<span class="c1"># loop through the transcation and compute the count for each candidate (item)</span>
+<span class="c1"># if the support of an item is greater than the min_support, then it is considered as frequent </span>
+
+<span class="k">def</span> <span class="nf">create_freq_item</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ck</span><span class="p">,</span> <span class="n">min_support</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">):</span>
           <span class="n">item_count</span> <span class="o">=</span> <span class="p">{}</span>
           <span class="k">for</span> <span class="n">transcation</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">ck</span><span class="p">:</span>
@@ -14700,7 +14694,6 @@ a.anchor-link {
           <span class="n">freq_item</span> <span class="o">=</span> <span class="p">[]</span>
           <span class="n">item_support</span> <span class="o">=</span> <span class="p">{}</span>
 
-          <span class="c1"># if the support of an item is greater than the min_support, then it is considered as frequent </span>
           <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">item_count</span><span class="p">:</span>
                     <span class="n">support</span> <span class="o">=</span> <span class="n">item_count</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_row</span>
                     <span class="k">if</span> <span class="n">support</span> <span class="o">&gt;=</span> <span class="n">min_support</span><span class="p">:</span>
@@ -14722,12 +14715,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_candidate_k</span><span class="p">(</span><span class="n">freq_item</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-          <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">          create the list of k-item candidate</span>
-<span class="sd">          &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create the list of k-item candidate</span>
+          
+<span class="k">def</span> <span class="nf">create_candidate_k</span><span class="p">(</span><span class="n">freq_item</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>          
           <span class="n">ck</span> <span class="o">=</span> <span class="p">[]</span>
-
           <span class="c1"># for generating candidate of size two (2-itemset)</span>
           <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">freq_item</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
@@ -14797,12 +14788,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_rules</span><span class="p">(</span><span class="n">freq_items</span><span class="p">,</span> <span class="n">item_support_dict</span><span class="p">,</span> <span class="n">min_confidence</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    create the association rules, the rules will be a list.</span>
-<span class="sd">    each element is a tuple of size 4, containing rules&#39;</span>
-<span class="sd">    left hand side, right hand side, confidence and lift</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create the association rules, the rules will be a list.</span>
+<span class="c1"># each element is a tuple of size 4, containing rules&#39; left hand side, right hand side, confidence </span>
+
+<span class="k">def</span> <span class="nf">create_rules</span><span class="p">(</span><span class="n">freq_items</span><span class="p">,</span> <span class="n">item_support_dict</span><span class="p">,</span> <span class="n">min_confidence</span><span class="p">):</span>
     <span class="n">association_rules</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># for the list that stores the frequent items, loop through</span>
@@ -14811,6 +14800,7 @@ a.anchor-link {
     <span class="c1"># for the frequent itemset generating process and the first one are all</span>
     <span class="c1"># single element frequent itemset, which can&#39;t perform the set</span>
     <span class="c1"># operation X -&gt; Y - X</span>
+    
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">freq_item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">freq_items</span><span class="p">[</span><span class="mi">1</span><span class="p">:(</span><span class="nb">len</span><span class="p">(</span><span class="n">freq_items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]):</span>
         <span class="k">for</span> <span class="n">freq_set</span> <span class="ow">in</span> <span class="n">freq_item</span><span class="p">:</span>
             
@@ -14851,12 +14841,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_conf</span><span class="p">(</span><span class="n">freq_items</span><span class="p">,</span> <span class="n">item_support_dict</span><span class="p">,</span> <span class="n">freq_set</span><span class="p">,</span> <span class="n">subsets</span><span class="p">,</span> <span class="n">min_confidence</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    create the rules and returns the rules info and the rules&#39;s</span>
-<span class="sd">    right hand side (used for generating the next round of rules) </span>
-<span class="sd">    if it surpasses the minimum confidence threshold</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create the rules and returns the rules info and the rules&#39;s right hand side </span>
+<span class="c1"># (used for generating the next round of rules) </span>
+<span class="c1"># if it surpasses the minimum confidence threshold</span>
+
+<span class="k">def</span> <span class="nf">compute_conf</span><span class="p">(</span><span class="n">freq_items</span><span class="p">,</span> <span class="n">item_support_dict</span><span class="p">,</span> <span class="n">freq_set</span><span class="p">,</span> <span class="n">subsets</span><span class="p">,</span> <span class="n">min_confidence</span><span class="p">):</span>
     <span class="n">rules</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">right_hand_side</span> <span class="o">=</span> <span class="p">[]</span>
     
@@ -14922,8 +14911,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Implementing FP aglorithm</p>
-
+<h2 id="Implementing-FP-aglorithm">Implementing FP aglorithm<a class="anchor-link" href="#Implementing-FP-aglorithm">&#182;</a></h2>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -15219,7 +15207,7 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;__main__.Tree_Node object at 0x1045ee220&gt; {&#39;3&#39;: [2, &lt;__main__.Tree_Node object at 0x11e4ff970&gt;], &#39;32&#39;: [3, &lt;__main__.Tree_Node object at 0x10731f1c0&gt;], &#39;38&#39;: [3, &lt;__main__.Tree_Node object at 0x10731b880&gt;], &#39;41&#39;: [2, &lt;__main__.Tree_Node object at 0x11e4f45b0&gt;], &#39;39&#39;: [4, &lt;__main__.Tree_Node object at 0x10731b2e0&gt;], &#39;48&#39;: [3, &lt;__main__.Tree_Node object at 0x107522670&gt;]}
+<pre>&lt;__main__.Tree_Node object at 0x10e89aa60&gt; {&#39;3&#39;: [2, &lt;__main__.Tree_Node object at 0x125bd1d90&gt;], &#39;32&#39;: [3, &lt;__main__.Tree_Node object at 0x125bd1b50&gt;], &#39;39&#39;: [4, &lt;__main__.Tree_Node object at 0x125bc5760&gt;], &#39;38&#39;: [3, &lt;__main__.Tree_Node object at 0x10f73edc0&gt;], &#39;41&#39;: [2, &lt;__main__.Tree_Node object at 0x10f73ec70&gt;], &#39;48&#39;: [3, &lt;__main__.Tree_Node object at 0x10f73ebb0&gt;]}
 </pre>
 </div>
 </div>
@@ -15258,7 +15246,7 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[{&#39;3&#39;}, {&#39;3&#39;, &#39;39&#39;}, {&#39;3&#39;, &#39;48&#39;}, {&#39;3&#39;, &#39;39&#39;, &#39;48&#39;}, {&#39;41&#39;}, {&#39;39&#39;, &#39;41&#39;}, {&#39;38&#39;, &#39;41&#39;}, {&#39;39&#39;, &#39;38&#39;, &#39;41&#39;}, {&#39;32&#39;, &#39;41&#39;}, {&#39;32&#39;}, {&#39;38&#39;}, {&#39;39&#39;, &#39;38&#39;}, {&#39;48&#39;}, {&#39;38&#39;, &#39;48&#39;}, {&#39;39&#39;, &#39;38&#39;, &#39;48&#39;}, {&#39;39&#39;, &#39;48&#39;}, {&#39;39&#39;}]
+<pre>[{&#39;3&#39;}, {&#39;48&#39;, &#39;3&#39;}, {&#39;3&#39;, &#39;39&#39;}, {&#39;48&#39;, &#39;3&#39;, &#39;39&#39;}, {&#39;41&#39;}, {&#39;38&#39;, &#39;41&#39;}, {&#39;41&#39;, &#39;39&#39;}, {&#39;38&#39;, &#39;41&#39;, &#39;39&#39;}, {&#39;32&#39;, &#39;41&#39;}, {&#39;32&#39;}, {&#39;38&#39;}, {&#39;38&#39;, &#39;48&#39;}, {&#39;38&#39;, &#39;48&#39;, &#39;39&#39;}, {&#39;38&#39;, &#39;39&#39;}, {&#39;48&#39;}, {&#39;48&#39;, &#39;39&#39;}, {&#39;39&#39;}]
 </pre>
 </div>
 </div>
@@ -15274,20 +15262,6 @@ a.anchor-link {
 <p>Implementation Apriori using Hashtree</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
